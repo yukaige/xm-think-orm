@@ -72,7 +72,7 @@ class BelongsToMany extends Relation
 
         if (str_contains($middle, '\\')) {
             $this->pivotName = $middle;
-            $this->middle = class_basename($middle);
+            $this->middle = tp_class_basename($middle);
         } else {
             $this->middle = $middle;
         }

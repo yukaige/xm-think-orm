@@ -141,7 +141,7 @@ class MorphTo extends Relation
      */
     public function hasWhere($where = [], $fields = null, string $joinType = '', Query $query = null)
     {
-        $alias = class_basename($this->parent);
+        $alias = tp_class_basename($this->parent);
         $types = $this->parent->distinct()->column($this->morphType);
         $query = $query ?: $this->parent->db();
 

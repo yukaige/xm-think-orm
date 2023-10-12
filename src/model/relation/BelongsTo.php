@@ -145,8 +145,8 @@ class BelongsTo extends OneToOne
     public function has(string $operator = '>=', int $count = 1, string $id = '*', string $joinType = '', Query $query = null): Query
     {
         $table      = $this->query->getTable();
-        $model      = class_basename($this->parent);
-        $relation   = class_basename($this->model);
+        $model      = tp_class_basename($this->parent);
+        $relation   = tp_class_basename($this->model);
         $localKey   = $this->localKey;
         $foreignKey = $this->foreignKey;
         $softDelete = $this->query->getOptions('soft_delete');
@@ -175,8 +175,8 @@ class BelongsTo extends OneToOne
     public function hasWhere($where = [], $fields = null, string $joinType = '', Query $query = null): Query
     {
         $table      = $this->query->getTable();
-        $model      = class_basename($this->parent);
-        $relation   = class_basename($this->model);
+        $model      = tp_class_basename($this->parent);
+        $relation   = tp_class_basename($this->model);
 
         if (is_array($where)) {
             $this->getQueryWhere($where, $relation);

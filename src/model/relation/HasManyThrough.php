@@ -102,7 +102,7 @@ class HasManyThrough extends Relation
      */
     public function has(string $operator = '>=', int $count = 1, string $id = '*', string $joinType = '', Query $query = null): Query
     {
-        $model          = Str::snake(class_basename($this->parent));
+        $model          = Str::snake(tp_class_basename($this->parent));
         $throughTable   = $this->through->getTable();
         $pk             = $this->throughPk;
         $throughKey     = $this->throughKey;
@@ -137,7 +137,7 @@ class HasManyThrough extends Relation
      */
     public function hasWhere($where = [], $fields = null, $joinType = '', Query $query = null): Query
     {
-        $model          = Str::snake(class_basename($this->parent));
+        $model          = Str::snake(tp_class_basename($this->parent));
         $throughTable   = $this->through->getTable();
         $pk             = $this->throughPk;
         $throughKey     = $this->throughKey;
@@ -267,7 +267,7 @@ class HasManyThrough extends Relation
         $throughKey = $this->throughKey;
 
         if ($this->baseQuery) {
-            $throughKey = Str::snake(class_basename($this->model)) . '.' . $this->throughKey;
+            $throughKey = Str::snake(tp_class_basename($this->model)) . '.' . $this->throughKey;
         }
 
         $withLimit = $this->query->getOptions('limit');
@@ -320,7 +320,7 @@ class HasManyThrough extends Relation
             $closure($this->query, $name);
         }
 
-        $alias = Str::snake(class_basename($this->model));
+        $alias = Str::snake(tp_class_basename($this->model));
         $throughTable = $this->through->getTable();
         $pk = $this->throughPk;
         $throughKey = $this->throughKey;
@@ -354,7 +354,7 @@ class HasManyThrough extends Relation
             $closure($this->query, $name);
         }
 
-        $alias          = Str::snake(class_basename($this->model));
+        $alias          = Str::snake(tp_class_basename($this->model));
         $throughTable   = $this->through->getTable();
         $pk             = $this->throughPk;
         $throughKey     = $this->throughKey;
@@ -381,7 +381,7 @@ class HasManyThrough extends Relation
     protected function baseQuery(): void
     {
         if (empty($this->baseQuery) && $this->parent->getData()) {
-            $alias          = Str::snake(class_basename($this->model));
+            $alias          = Str::snake(tp_class_basename($this->model));
             $throughTable   = $this->through->getTable();
             $pk             = $this->throughPk;
             $throughKey     = $this->throughKey;

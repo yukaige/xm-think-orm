@@ -1,6 +1,12 @@
-# ThinkORM
+# XmThinkORM 
+>* 修改背景:将TP的项目移植到Laravel
+>* 遇到问题:tp和Laravel的全局函数冲突，导致无法调用。
+>* 修改方案：重命名tp相关的ORM函数名称，不改变其内容。
+> 
+* 本项目代码代码来着ThinkPHP
+* https://github.com/top-think/think-orm
 
-基于PHP8.0+ 和PDO实现的ORM，支持多数据库，3.0版本主要特性包括：
+基于PHP8.0+ 和PDO实现的ORM，支持多数据  库，3.0版本主要特性包括：
 
 * 基于PDO和PHP强类型实现
 * 支持原生查询和查询构造器
@@ -19,7 +25,7 @@
 
 ## 安装
 ~~~
-composer require topthink/think-orm
+composer require yukaige/xm-think-orm
 ~~~
 
 ## 文档

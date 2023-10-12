@@ -557,7 +557,7 @@ trait RelationShip
     {
         // 记录当前关联信息
         $model      = $this->parseModel($model);
-        $name       = Str::snake(class_basename($model));
+        $name       = Str::snake(tp_class_basename($model));
         $middle     = $middle ?: Str::snake($this->name) . '_' . $name;
         $foreignKey = $foreignKey ?: $name . '_id';
         $localKey   = $localKey ?: $this->getForeignKey($this->name);
@@ -658,7 +658,7 @@ trait RelationShip
         [$morphType, $morphKey] = $this->parseMorph($morph);
 
         $model      = $this->parseModel($model);
-        $name       = Str::snake(class_basename($model));
+        $name       = Str::snake(tp_class_basename($model));
         $localKey   = $localKey ?: $this->getForeignKey($name);
 
         return new MorphToMany($this, $model, $middle, $morphType, $morphKey, $localKey);
@@ -736,7 +736,7 @@ trait RelationShip
     protected function getForeignKey(string $name): string
     {
         if (str_contains($name, '\\')) {
-            $name = class_basename($name);
+            $name = tp_class_basename($name);
         }
 
         return Str::snake($name) . '_id';
